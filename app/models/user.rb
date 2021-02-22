@@ -41,4 +41,8 @@ class User < ApplicationRecord
   has_many :articles, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :article_likes, dependent: :destroy
+
+  before_save {self.email = email.downcase}
+
+  validates :name, {presence: true, length: maximum: 50},
 end
