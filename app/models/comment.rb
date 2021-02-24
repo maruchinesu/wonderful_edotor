@@ -22,5 +22,5 @@
 class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :article
-  validates :body, { presence: true, length: { in: 6..200 } }
+  validates :body, presence: true, length: { minimum: 3, maximum: 200 }
 end
