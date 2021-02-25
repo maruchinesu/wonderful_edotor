@@ -15,6 +15,7 @@
 #
 # Foreign Keys
 #
+# rubocop:disable all
 #  fk_rails_...  (user_id => users.id)
 #
 class Article < ApplicationRecord
@@ -24,4 +25,5 @@ class Article < ApplicationRecord
 
   validates :title, presence: true, uniqueness: true,
             :body, presence: true, length: { in: 6..200 }
+# rubocop:enable all
 end
