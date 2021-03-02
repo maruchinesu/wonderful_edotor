@@ -11,6 +11,7 @@
 #
 # Indexes
 #
+#  index_articles_on_title    (title) UNIQUE
 #  index_articles_on_user_id  (user_id)
 #
 # Foreign Keys
@@ -22,6 +23,6 @@ class Article < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :article_likes, dependent: :destroy
 
-  validates :title, presence: true, uniqueness: true,
-  validates :body, presence: true, length: { in: 6..200 } # rubocop:disable all
+  validates :title, presence: true, uniqueness: true
+  validates :body, presence: true, length: { in: 6..200 }
 end
